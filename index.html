@@ -4,11 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Demo using preload</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" onload="console.log('stylesheet onload');">
+  <link rel="preload" href="image-with-preload.jpg" as="image" onload="alert('preload image onload');">
 </head>
 <body>
-  <h1>Hello</h1>
+  <div class="container" style="max-width: 980px">
+    <div class="my-4 row">
+      <h1>An demo showing how to user rel="preload"</h1>
+      <div class="alert alert-light mb-0" role="alert">
+        See Source Code on <a href="https://github.com/PJCHENder/preload-resource-example" target="_blank">Github</a>
+      </div>
+    </div>
+
+    <div class="row justify-content-between my-4">
+      <div class="col-6">
+        <div id="image-with-preload" class="card" data-image="image-with-preload.jpg">
+          <div class="card-body">
+            <h5 class="card-title">Image with preload</h5>
+            <p class="card-text">Image <u>with</u> preload will insert the image already preloaded.</p>
+            <a href="#" class="btn btn-primary">Load Preload Image</a>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.flickr.com/photos/gsfc/41752931424/" target="_blank">Photo by NASA</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div id="image-without-preload" class="card" data-image="image-without-preload.jpg">
+          <div class="card-body">
+            <h5 class="card-title">Image with preload</h5>
+            <p class="card-text">Image <u>without</u> preload will load the image while inserting the image.</p>
+            <a href="#" class="btn btn-primary">Load Image</a>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.flickr.com/photos/gsfc/41752931424/" target="_blank">Photo by NASA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-warning" role="alert">
+          Warning: the preload attribute may not work on Firefox.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
